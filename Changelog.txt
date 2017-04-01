@@ -1,0 +1,64 @@
+Version 0.9.0 Beta
++ Use Boost lexical_cast for data conversion.
++ Renamed 'GetSiblings' back to 'AsCollection'
+
+Version 0.8.9 Beta
++ All integer setters and getters are renamed in the form of (S/G)etInt(Bits). Example, SetInt32
++ Breaking changes: SetChar/GetChar is replaced by SetInt8/GetInt8; The new methods process in integers(eg, 78), instead of characters(eg, 'A').
++ Changed throwing of std exception to throwing appropriate logic_error and runtime_error. 
++ Renamed 'AsCollection' to 'GetSiblings'
++ Renamed 'GetCollection' to 'GetChildren'
+
+Version 0.8.8 Beta
++ Added aggregation functions: Count, Minimum, Maximum, Sum and Average
++ Added StrUtil.Format and StrUtil.Split to format and split strings.
++ Removed Boost FileSystem dependency from RootElement class
+
+Version 0.8.7 Beta
++ Removed the template arguments for STL make_pair calls so that Visual C++ 11 Beta can compile the HyperElement class successfully.
++ Temporarily removed native C++ RootElement class. Plan is to have RootElement class reinstated in the new cross-platform Elmax.
+
+Version 0.8.5 Beta
++ Ported PJ Arends' RootElement class to C#.
+
+Version 0.8.4 Beta
++ Checked in PJ Arends' RootElement and Elmax.h header and a unit test (in UnitTestSaveAndRead.cpp) to test RootElement.
+
+Version 0.8.3 Beta
++ Checked in PJ Arends fix for missing closing tag (if there is no child elements) for PrettySave and Save methods.
+
+Version 0.8.2 Beta
++ Fixed the PrettySave problem of cannot save Comment and CData Section correctly.
++ Fixed Save and PrettySave method not to use MSXML DOM to save to cut down memory consumption and improve performance.
+
+Version 0.8.1 Beta
++ Minor change for release together with the new article.
+
+Version 0.8.0 Beta
++ Added pretty save
++ Added Linq-to-XML style node creation for C++ Elmax.
+
+Version 0.7.7 Beta
++ Removed Hungarian notation from C# Elmax library and tests
++ Filled in missing C# documentation comments
+
+Version 0.7.5 Beta
++ Added setter and getter methods for ATL CString 
++ Added methods to query using XPath
++ Added methods to read and write hexadecimal values
+
+Version 0.7.0 Beta
++ C# library and unit tests
+
+Version 0.6.5 Beta : 10/01/2011
++ Using ATL Base64 implementation
++ Changed the getter and setter not to throw exceptions because of null type converter pointer
++ Option to read and write GUIDs without braces.
++ Renamed "convertor" to "converter"
+
+Version 0.6 Beta : 24/12/2010
++ Added capability to save GUID, date and datetime in XML
++ Added capability to save binary file content in Base64 format in XML
+
+Version 0.5 Beta : 23/12/2010
++ 1st release (Feature complete)

@@ -1,0 +1,64 @@
+Latest version have UTF-8 support! Internally it is still stored as unicode.
+
+
+Notes for using Unicode file class
+===================================
+The buffer length required by some functions is in terms of wide-characters, not bytes
+Example, for writing string of L"Hello", you specify 5, not 10.
+
+==========================
+If you specify zero as the buffer length for write functions, it will treat the string to be
+written as null terminated.
+
+For Read() function, you must specify the buffer length, except for ReadLine()
+You must pass a null pointer to Read() and ReadLine().
+You must delete the array returned by Read() and ReadLine() yourself.
+
+==========================
+Please use binary mode, when opening unicode file.
+Please use text mode, when opening UTF-8 file.
+
+example,
+
+CUnicodeFile uf;
+// open for writing
+bool bRet = uf.Open( _T("D:\\test.txt"), _T("wb") );
+
+// open for appending
+//bool bRet = uf.Open( _T("D:\\test.txt"), _T("ab") );
+
+if( bRet )
+{
+	uf.WriteLine( _T("Thank god is friday!") );
+	...
+}
+
+==========================
+Call IsUnicodeFile() immediately after opening to determine it is a unicode file
+before proceeding.
+
+==========================
+Before using ReadLine(), you must call ReadAll() once;
+
+CUnicodeFile uf;
+bool bRet = uf.Open( "D:\\uc.txt", "rb" );
+
+if( bRet )
+{	
+	uf.ReadAll();
+
+	wchar_t *pwchar = 0;
+	int nBufLen = 0;
+
+	CString str;
+	while( uf.ReadLine( pwchar, nBufLen ) )
+	{
+		if( pwchar )
+		{
+			// Do your stuff here			
+
+			delete [] pwchar;
+			pwchar = 0;
+		}
+	}
+}
