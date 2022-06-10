@@ -15,7 +15,7 @@ bool CUnicodeFile::Open( const char* pszFileName, const char* mode )
 	
 	GetFileSize( pszFileName,  m_dwFileSize );
 
-	m_pFile = fopen( pszFileName, mode );
+	fopen_s(&m_pFile, pszFileName, mode );
 
 	if( !m_pFile )
 		return false;
@@ -39,7 +39,7 @@ bool CUnicodeFile::Open( const wchar_t* pszFileName, const wchar_t* mode  )
 	
 	GetFileSize( pszFileName,  m_dwFileSize );
 
-	m_pFile = _wfopen( pszFileName, mode );
+	_wfopen_s(&m_pFile, pszFileName, mode );
 
 	if( !m_pFile )
 		return false;
@@ -462,7 +462,7 @@ bool CUnicodeFile::ReadLine( wchar_t*& pszContents, int& nBufLen )
 	if( !m_pFile )
 		return false;
 
-	if( m_posReadAll >= m_dwFileSize/2-1 )
+	if( (unsigned int)m_posReadAll >= m_dwFileSize/2-1 )
 		return false;
 
 	if( m_pszReadAll )
