@@ -1,7 +1,6 @@
 #include "StdAfx.h"
 #include "DataType.h"
 #include "..\\BaseConverter.h"
-#include <boost/lexical_cast.hpp>
 
 using namespace Elmax;
 
@@ -11,37 +10,37 @@ DataType::~DataType(void)
 
 DataType::DataType( int i )
 {
-	std::string temp = boost::lexical_cast<std::string>(i);
+	std::string temp = std::to_string(i);
 	m_str = BaseConverter::ConvToString(temp);
 }
 
 DataType::DataType( unsigned int ui )
 {
-	std::string temp = boost::lexical_cast<std::string>(ui);
+	std::string temp = std::to_string(ui);
 	m_str = BaseConverter::ConvToString(temp);
 }
 
 DataType::DataType( const __int64& i64 )
 {
-	std::string temp = boost::lexical_cast<std::string>(i64);
+	std::string temp = std::to_string(i64);
 	m_str = BaseConverter::ConvToString(temp);
 }
 
 DataType::DataType( const unsigned __int64& ui64 )
 {
-	std::string temp = boost::lexical_cast<std::string>(ui64);
+	std::string temp = std::to_string(ui64);
 	m_str = BaseConverter::ConvToString(temp);
 }
 
 DataType::DataType( float f )
 {
-	std::string temp = boost::lexical_cast<std::string>(f);
+	std::string temp = std::to_string(f);
 	m_str = BaseConverter::ConvToString(temp);
 }
 
 DataType::DataType( const double& d )
 {
-	std::string temp = boost::lexical_cast<std::string>(d);
+	std::string temp = std::to_string(d);
 	m_str = BaseConverter::ConvToString(temp);
 }
 
@@ -68,7 +67,7 @@ DataType::DataType( const wchar_t* pwc )
 
 DataType::DataType( char c )
 {
-	std::string temp = boost::lexical_cast<std::string>(c);
+	std::string temp = std::to_string(c);
 	m_str = BaseConverter::ConvToString(temp);
 }
 

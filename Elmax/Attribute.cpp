@@ -1,6 +1,5 @@
 #include "StdAfx.h"
 #include "Attribute.h"
-#include <boost/lexical_cast.hpp>
 #include "BaseConverter.h"
 
 using namespace Elmax;
@@ -378,7 +377,7 @@ bool Attribute::SetBool(bool val)
 
 bool Attribute::SetChar(char val)
 {
-	std::string temp = boost::lexical_cast<std::string>(val);
+	std::string temp = std::to_string(val);
 	std::wstring strDest = BaseConverter::ConvToString(temp);
 	if(SetString(strDest))
 		return true;
@@ -388,7 +387,7 @@ bool Attribute::SetChar(char val)
 
 bool Attribute::SetInt16(short val)
 {
-	std::string temp = boost::lexical_cast<std::string>(val);
+	std::string temp = std::to_string(val);
 	std::wstring strDest = BaseConverter::ConvToString(temp);
 	if(SetString(strDest))
 		return true;
@@ -398,7 +397,7 @@ bool Attribute::SetInt16(short val)
 
 bool Attribute::SetInt32(int val)
 {
-	std::string temp = boost::lexical_cast<std::string>(val);
+	std::string temp = std::to_string(val);
 	std::wstring strDest = BaseConverter::ConvToString(temp);
 	if(SetString(strDest))
 		return true;
@@ -408,7 +407,7 @@ bool Attribute::SetInt32(int val)
 
 bool Attribute::SetInt64(__int64 val)
 {
-	std::string temp = boost::lexical_cast<std::string>(val);
+	std::string temp = std::to_string(val);
 	std::wstring strDest = BaseConverter::ConvToString(temp);
 	if(SetString(strDest))
 		return true;
@@ -418,7 +417,7 @@ bool Attribute::SetInt64(__int64 val)
 
 bool Attribute::SetUChar(unsigned char val)
 {
-	std::string temp = boost::lexical_cast<std::string>(val);
+	std::string temp = std::to_string(val);
 	std::wstring strDest = BaseConverter::ConvToString(temp);
 	if(SetString(strDest))
 		return true;
@@ -428,7 +427,7 @@ bool Attribute::SetUChar(unsigned char val)
 
 bool Attribute::SetUInt16(unsigned short val)
 {
-	std::string temp = boost::lexical_cast<std::string>(val);
+	std::string temp = std::to_string(val);
 	std::wstring strDest = BaseConverter::ConvToString(temp);
 	if(SetString(strDest))
 		return true;
@@ -438,7 +437,7 @@ bool Attribute::SetUInt16(unsigned short val)
 
 bool Attribute::SetUInt32(unsigned int val)
 {
-	std::string temp = boost::lexical_cast<std::string>(val);
+	std::string temp = std::to_string(val);
 	std::wstring strDest = BaseConverter::ConvToString(temp);
 	if(SetString(strDest))
 		return true;
@@ -448,7 +447,7 @@ bool Attribute::SetUInt32(unsigned int val)
 
 bool Attribute::SetUInt64(unsigned __int64 val)
 {
-	std::string temp = boost::lexical_cast<std::string>(val);
+	std::string temp = std::to_string(val);
 	std::wstring strDest = BaseConverter::ConvToString(temp);
 	if(SetString(strDest))
 		return true;
@@ -458,7 +457,7 @@ bool Attribute::SetUInt64(unsigned __int64 val)
 
 bool Attribute::SetFloat(float val)
 {
-	std::string temp = boost::lexical_cast<std::string>(val);
+	std::string temp = std::to_string(val);
 	std::wstring strDest = BaseConverter::ConvToString(temp);
 	if(SetString(strDest))
 		return true;
@@ -468,7 +467,7 @@ bool Attribute::SetFloat(float val)
 
 bool Attribute::SetDouble(double val)
 {
-	std::string temp = boost::lexical_cast<std::string>(val);
+	std::string temp = std::to_string(val);
 	std::wstring strDest = BaseConverter::ConvToString(temp);
 	if(SetString(strDest))
 		return true;
@@ -610,9 +609,9 @@ char Attribute::GetChar(char defaultVal) const
 	char val = defaultVal;
 	try
 	{
-		val = boost::lexical_cast<char>(BaseConverter::ConvToString(src));
+		val = static_cast<char>(std::stoi(BaseConverter::ConvToString(src)));
 	}
-	catch (boost::bad_lexical_cast &)
+	catch (std::exception &)
 	{
 		val = defaultVal;
 	}
@@ -628,9 +627,9 @@ short Attribute::GetInt16(short defaultVal) const
 	short val = defaultVal;
 	try
 	{
-		val = boost::lexical_cast<short>(BaseConverter::ConvToString(src));
+		val = static_cast<short>(std::stoi(BaseConverter::ConvToString(src)));
 	}
-	catch (boost::bad_lexical_cast &)
+	catch (std::exception &)
 	{
 		val = defaultVal;
 	}
@@ -646,9 +645,9 @@ int Attribute::GetInt32(int defaultVal) const
 	int val = defaultVal;
 	try
 	{
-		val = boost::lexical_cast<int>(BaseConverter::ConvToString(src));
+		val = std::stoi(BaseConverter::ConvToString(src));
 	}
-	catch (boost::bad_lexical_cast &)
+	catch (std::exception &)
 	{
 		val = defaultVal;
 	}
@@ -664,9 +663,9 @@ __int64 Attribute::GetInt64(__int64 defaultVal) const
 	__int64 val = defaultVal;
 	try
 	{
-		val = boost::lexical_cast<__int64>(BaseConverter::ConvToString(src));
+		val = std::stoll(BaseConverter::ConvToString(src));
 	}
-	catch (boost::bad_lexical_cast &)
+	catch (std::exception &)
 	{
 		val = defaultVal;
 	}
@@ -682,9 +681,9 @@ unsigned char Attribute::GetUChar(unsigned char defaultVal) const
 	unsigned char val = defaultVal;
 	try
 	{
-		val = boost::lexical_cast<unsigned char>(BaseConverter::ConvToString(src));
+		val = static_cast<unsigned char>(std::stoul(BaseConverter::ConvToString(src)));
 	}
-	catch (boost::bad_lexical_cast &)
+	catch (std::exception &)
 	{
 		val = defaultVal;
 	}
@@ -700,9 +699,9 @@ unsigned short Attribute::GetUInt16(unsigned short defaultVal) const
 	unsigned short val = defaultVal;
 	try
 	{
-		val = boost::lexical_cast<unsigned short>(BaseConverter::ConvToString(src));
+		val = static_cast<unsigned short>(std::stoul(BaseConverter::ConvToString(src)));
 	}
-	catch (boost::bad_lexical_cast &)
+	catch (std::exception &)
 	{
 		val = defaultVal;
 	}
@@ -718,9 +717,9 @@ unsigned int Attribute::GetUInt32(unsigned int defaultVal) const
 	unsigned int val = defaultVal;
 	try
 	{
-		val = boost::lexical_cast<unsigned int>(BaseConverter::ConvToString(src));
+		val = std::stoul(BaseConverter::ConvToString(src));
 	}
-	catch (boost::bad_lexical_cast &)
+	catch (std::exception &)
 	{
 		val = defaultVal;
 	}
@@ -736,9 +735,9 @@ unsigned __int64 Attribute::GetUInt64(unsigned __int64 defaultVal) const
 	unsigned __int64 val = defaultVal;
 	try
 	{
-		val = boost::lexical_cast<unsigned __int64>(BaseConverter::ConvToString(src));
+		val = std::stoull(BaseConverter::ConvToString(src));
 	}
-	catch (boost::bad_lexical_cast &)
+	catch (std::exception &)
 	{
 		val = defaultVal;
 	}
@@ -754,9 +753,9 @@ float Attribute::GetFloat(float defaultVal) const
 	float val = defaultVal;
 	try
 	{
-		val = boost::lexical_cast<float>(BaseConverter::ConvToString(src));
+		val = std::stof(BaseConverter::ConvToString(src));
 	}
-	catch (boost::bad_lexical_cast &)
+	catch (std::exception &)
 	{
 		val = defaultVal;
 	}
@@ -772,9 +771,9 @@ double Attribute::GetDouble(double defaultVal) const
 	double val = defaultVal;
 	try
 	{
-		val = boost::lexical_cast<double>(BaseConverter::ConvToString(src));
+		val = std::stod(BaseConverter::ConvToString(src));
 	}
-	catch (boost::bad_lexical_cast &)
+	catch (std::exception &)
 	{
 		val = defaultVal;
 	}

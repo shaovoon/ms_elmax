@@ -11,6 +11,7 @@
 #include "DateAndTime.h"
 #include <atlstr.h>
 #include <functional>
+#include <stdexcept>
 #include "NewNode.h"
 
 namespace Elmax

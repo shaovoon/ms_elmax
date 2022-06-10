@@ -13,7 +13,7 @@ namespace TestNativeElmax
 	private:
 		HRESULT CreateAndInitDom(MSXML2::IXMLDOMDocumentPtr& pDoc)
 		{
-			HRESULT hr = pDoc.CreateInstance(__uuidof(MSXML2::DOMDocument30));
+			HRESULT hr = pDoc.CreateInstance(__uuidof(MSXML2::DOMDocument60));
 			if (SUCCEEDED(hr))
 			{
 				// these methods should not fail so don't inspect result

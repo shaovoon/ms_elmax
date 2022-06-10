@@ -14,7 +14,7 @@ bool RootElement::LoadFile(const std::wstring &FilePath)
 
 	UnloadFile();
 
-	HRESULT hr = m_ptrDoc.CreateInstance(__uuidof(MSXML2::DOMDocument30));
+	HRESULT hr = m_ptrDoc.CreateInstance(__uuidof(MSXML2::DOMDocument60));
 
 #ifdef _DEBUG
 	if (hr == CO_E_NOTINITIALIZED)

@@ -5,7 +5,6 @@
 #endif
 #include "DataTypeRef.h"
 #include "..\\BaseConverter.h"
-#include <boost/lexical_cast.hpp>
 
 using namespace Elmax;
 
@@ -20,9 +19,9 @@ bool DataTypeRef::ConvStrToType( const std::wstring& str )
 	case DTR_INT:
 		try
 		{
-			*(m_ptr.pi) = boost::lexical_cast<int>(BaseConverter::ConvToString(str));
+			*(m_ptr.pi) = std::stoi(BaseConverter::ConvToString(str));
 		}
-		catch (boost::bad_lexical_cast &)
+		catch (std::exception &)
 		{
 			*(m_ptr.pi) = -1;
 		}
@@ -31,9 +30,9 @@ bool DataTypeRef::ConvStrToType( const std::wstring& str )
 	case DTR_UINT:
 		try
 		{
-			*(m_ptr.pui) = boost::lexical_cast<unsigned int>(BaseConverter::ConvToString(str));
+			*(m_ptr.pui) = std::stoul(BaseConverter::ConvToString(str));
 		}
-		catch (boost::bad_lexical_cast &)
+		catch (std::exception &)
 		{
 			*(m_ptr.pui) = 0;
 		}
@@ -42,9 +41,9 @@ bool DataTypeRef::ConvStrToType( const std::wstring& str )
 	case DTR_SHORT:
 		try
 		{
-			*(m_ptr.psi) = boost::lexical_cast<short>(BaseConverter::ConvToString(str));
+			*(m_ptr.psi) = static_cast<short>(std::stoi(BaseConverter::ConvToString(str)));
 		}
-		catch (boost::bad_lexical_cast &)
+		catch (std::exception &)
 		{
 			*(m_ptr.psi) = -1;
 		}
@@ -52,9 +51,9 @@ bool DataTypeRef::ConvStrToType( const std::wstring& str )
 	case DTR_USHORT:
 		try
 		{
-			*(m_ptr.pusi) = boost::lexical_cast<unsigned short>(BaseConverter::ConvToString(str));
+			*(m_ptr.pusi) = static_cast<unsigned short>(std::stoul(BaseConverter::ConvToString(str)));
 		}
-		catch (boost::bad_lexical_cast &)
+		catch (std::exception &)
 		{
 			*(m_ptr.pusi) = 0;
 		}
@@ -62,9 +61,9 @@ bool DataTypeRef::ConvStrToType( const std::wstring& str )
 	case DTR_INT64:
 		try
 		{
-			*(m_ptr.pi64) = boost::lexical_cast<__int64>(BaseConverter::ConvToString(str));
+			*(m_ptr.pi64) = std::stoll(BaseConverter::ConvToString(str));
 		}
-		catch (boost::bad_lexical_cast &)
+		catch (std::exception &)
 		{
 			*(m_ptr.pi64) = -1;
 		}
@@ -72,9 +71,9 @@ bool DataTypeRef::ConvStrToType( const std::wstring& str )
 	case DTR_UINT64:
 		try
 		{
-			*(m_ptr.pui64) = boost::lexical_cast<unsigned __int64>(BaseConverter::ConvToString(str));
+			*(m_ptr.pui64) = std::stoull(BaseConverter::ConvToString(str));
 		}
-		catch (boost::bad_lexical_cast &)
+		catch (std::exception &)
 		{
 			*(m_ptr.pui64) = 0;
 		}
@@ -82,9 +81,9 @@ bool DataTypeRef::ConvStrToType( const std::wstring& str )
 	case DTR_FLOAT:
 		try
 		{
-			*(m_ptr.pf) = boost::lexical_cast<float>(BaseConverter::ConvToString(str));
+			*(m_ptr.pf) = std::stof(BaseConverter::ConvToString(str));
 		}
-		catch (boost::bad_lexical_cast &)
+		catch (std::exception &)
 		{
 			*(m_ptr.pf) = 0.0f;
 		}
@@ -92,9 +91,9 @@ bool DataTypeRef::ConvStrToType( const std::wstring& str )
 	case DTR_DOUBLE:
 		try
 		{
-			*(m_ptr.pd) = boost::lexical_cast<double>(BaseConverter::ConvToString(str));
+			*(m_ptr.pd) = std::stod(BaseConverter::ConvToString(str));
 		}
-		catch (boost::bad_lexical_cast &)
+		catch (std::exception &)
 		{
 			*(m_ptr.pd) = 0.0;
 		}
@@ -137,9 +136,9 @@ bool DataTypeRef::ConvStrToType( const std::wstring& str )
 	case DTR_CHAR:
 		try
 		{
-			*(m_ptr.pc) = boost::lexical_cast<char>(BaseConverter::ConvToString(str));
+			*(m_ptr.pc) = static_cast<char>(std::stoi(BaseConverter::ConvToString(str)));
 		}
-		catch (boost::bad_lexical_cast &)
+		catch (std::exception &)
 		{
 			*(m_ptr.pc) = '-';
 		}

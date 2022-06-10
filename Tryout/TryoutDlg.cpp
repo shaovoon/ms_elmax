@@ -95,7 +95,7 @@ HCURSOR CTryoutDlg::OnQueryDragIcon()
 // Helper function to create a DOM instance. 
 HRESULT CTryoutDlg::CreateAndInitDom(MSXML2::IXMLDOMDocumentPtr& pDoc)
 {
-	HRESULT hr = pDoc.CreateInstance(__uuidof(MSXML2::DOMDocument30));
+	HRESULT hr = pDoc.CreateInstance(__uuidof(MSXML2::DOMDocument60));
 	if (SUCCEEDED(hr))
 	{
 		// these methods should not fail so don't inspect result
@@ -110,7 +110,7 @@ HRESULT CTryoutDlg::CreateAndInitDom(MSXML2::IXMLDOMDocumentPtr& pDoc)
 
 HRESULT CTryoutDlg::OpenDOMFile(MSXML2::IXMLDOMDocumentPtr& pDoc, const std::wstring& szFile)
 {
-	HRESULT hr = pDoc.CreateInstance(__uuidof(MSXML2::DOMDocument30));
+	HRESULT hr = pDoc.CreateInstance(__uuidof(MSXML2::DOMDocument60));
 	VARIANT_BOOL b = VARIANT_FALSE;
 	if (SUCCEEDED(hr))
 	{
@@ -172,7 +172,7 @@ bool CTryoutDlg::CreateAndLoadXml(MSXML2::IXMLDOMDocumentPtr& pDoc, const std::w
 	else
 		return false;
 
-	HRESULT hr = pDoc.CreateInstance(__uuidof(MSXML2::DOMDocument30));
+	HRESULT hr = pDoc.CreateInstance(__uuidof(MSXML2::DOMDocument60));
 	VARIANT_BOOL bLoad = VARIANT_FALSE;
 	if (SUCCEEDED(hr))
 	{

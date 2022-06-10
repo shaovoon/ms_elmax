@@ -1,7 +1,6 @@
 #include "StdAfx.h"
 #include "StringUtils.h"
 #include "..\\BaseConverter.h"
-#include <boost/lexical_cast.hpp>
 
 using namespace Elmax;
 std::wstring ToStr(bool val)
@@ -27,54 +26,54 @@ std::wstring ToStr(char val)
 
 std::wstring ToStr(short val)
 {
-	std::string temp = boost::lexical_cast<std::string>(val);
+	std::string temp = std::to_string(val);
 	return BaseConverter::ConvToString(temp);
 }
 
 std::wstring ToStr(int val)
 {
-	std::string temp = boost::lexical_cast<std::string>(val);
+	std::string temp = std::to_string(val);
 	return BaseConverter::ConvToString(temp);
 }
 
 std::wstring ToStr(__int64 val)
 {
-	std::string temp = boost::lexical_cast<std::string>(val);
+	std::string temp = std::to_string(val);
 	return BaseConverter::ConvToString(temp);
 }
 
 std::wstring ToStr(unsigned char val)
 {
-	std::string temp = boost::lexical_cast<std::string>(val);
+	std::string temp = std::to_string(val);
 	return BaseConverter::ConvToString(temp);
 }
 
 std::wstring ToStr(unsigned short val)
 {
-	std::string temp = boost::lexical_cast<std::string>(val);
+	std::string temp = std::to_string(val);
 	return BaseConverter::ConvToString(temp);
 }
 
 std::wstring ToStr(unsigned int val)
 {
-	std::string temp = boost::lexical_cast<std::string>(val);
+	std::string temp = std::to_string(val);
 	return BaseConverter::ConvToString(temp);
 }
 
 std::wstring ToStr(unsigned __int64 val)
 {
-	std::string temp = boost::lexical_cast<std::string>(val);
+	std::string temp = std::to_string(val);
 	return BaseConverter::ConvToString(temp);
 }
 
 std::wstring ToStr(float val)
 {
-	std::string temp = boost::lexical_cast<std::string>(val);
+	std::string temp = std::to_string(val);
 	return BaseConverter::ConvToString(temp);
 }
 
 std::wstring ToStr(double val)
 {
-	std::string temp = boost::lexical_cast<std::string>(val);
+	std::string temp = std::to_string(val);
 	return BaseConverter::ConvToString(temp);
 }

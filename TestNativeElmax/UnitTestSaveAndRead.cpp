@@ -14,7 +14,7 @@ namespace TestNativeElmax
 	private:
 		HRESULT CreateAndInitDom(MSXML2::IXMLDOMDocumentPtr& pDoc)
 		{
-			HRESULT hr = pDoc.CreateInstance(__uuidof(MSXML2::DOMDocument30));
+			HRESULT hr = pDoc.CreateInstance(__uuidof(MSXML2::DOMDocument60));
 			if (SUCCEEDED(hr))
 			{
 				// these methods should not fail so don't inspect result
@@ -60,7 +60,7 @@ namespace TestNativeElmax
 		}
 		bool CreateAndLoadXmlString(MSXML2::IXMLDOMDocumentPtr& pDoc, const std::wstring& strXml)
 		{
-			HRESULT hr = pDoc.CreateInstance(__uuidof(MSXML2::DOMDocument30));
+			HRESULT hr = pDoc.CreateInstance(__uuidof(MSXML2::DOMDocument60));
 			VARIANT_BOOL bLoad = VARIANT_FALSE;
 			if (SUCCEEDED(hr))
 			{
