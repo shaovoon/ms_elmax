@@ -1021,7 +1021,7 @@ You can get a vector of `Comment` objects which are children of the element, usi
 
 ### CData Section
 
-For your information, an XML CData section comes in the form of <code lang="xml"><![CDATA[<IgnoredInCDataSection/>]]>`. An XML CData section typically contains data which is not parsed by the parsers, therefore it can contain < and > and other invalid text characters. Some programmers prefer to store them in Base64 format (see next section). Below are a bunch of operations you can use with CData sections:
+For your information, an XML CData section comes in the form of `<![CDATA[<IgnoredInCDataSection/>]]>`. An XML CData section typically contains data which is not parsed by the parsers, therefore it can contain < and > and other invalid text characters. Some programmers prefer to store them in Base64 format (see next section). Below are a bunch of operations you can use with CData sections:
 
 ```Cpp
 using namespace Elmax;
