@@ -1003,7 +1003,7 @@ The list of `Attribute` setters and accessors are the same as that for `Element`
 
 ### Comment
 
-For your information, XML comments come in the form of <code lang="xml"><!--My example comments here-->`. Below are a bunch of operations you can use with comments:
+For your information, XML comments come in the form of `<!--My example comments here-->`. Below are a bunch of operations you can use with comments:
 
 ```Cpp
 using namespace Elmax;
